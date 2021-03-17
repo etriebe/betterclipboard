@@ -23,7 +23,7 @@ namespace betterclipboard
             _logger = logger;
             clipboard = ClipboardService.GetText();
             this.clipboardRegex = new Dictionary<string, string>();
-            this.clipboardRegex.Add(@"https:\/\/www\.tiktok\.com\/@(?<username>[\w\d]+)\/video\/(?<videoID>\d+)", "https://www.tiktok.com/@##username##/video/##videoID##");
+            this.clipboardRegex.Add(@"https:\/\/www\.tiktok\.com\/(.+)?@(?<username>[\w\d]+)\/video\/(?<videoID>\d+)", "https://www.tiktok.com/@##username##/video/##videoID##");
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
