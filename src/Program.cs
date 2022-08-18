@@ -21,12 +21,12 @@ namespace betterclipboard
                 logFile = $"bc_{DateTime.Now.ToString("yyyyMMdd")}.log";
                 clipboard = ClipboardService.GetText();
                 clipboardRegex = new Dictionary<string, string>();
-                clipboardRegex.Add(@"https:\/\/www\.tiktok\.com\/(.+)?@(?<username>[\w\d]+)\/video\/(?<videoID>\d+)", "https://www.tiktok.com/@##username##/video/##videoID##");
+                clipboardRegex.Add(@"https:\/\/www\.tiktok\.com\/(.+)?@(?<username>[\w\d\.]+)\/video\/(?<videoID>\d+)", "https://www.tiktok.com/@##username##/video/##videoID##");
                 while (true)
                 {
                     WriteMessage($"Worker running at: {DateTimeOffset.Now}");
                     CheckChangedClipboard();
-                    Thread.Sleep(5000);
+                    Thread.Sleep(1000);
                 }
             }
             catch (Exception e)
